@@ -1,9 +1,10 @@
 // SignInWithGoogle.tsx
-"use client"
+"use client";
 import { useState, useEffect } from "react";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 import firebaseConfig from "../firebaseconfig";
+import FileUpload from "@/components/file-upload";
 
 const initializeFirebase = () => {
   if (!firebase.apps.length) {
@@ -37,6 +38,7 @@ const SignInWithGoogle: React.FC = () => {
       ) : (
         <button onClick={handleSignInWithGoogle}>Sign in with Google</button>
       )}
+      <FileUpload />
     </div>
   );
 };
