@@ -10,6 +10,9 @@ import { RxPencil2 } from "react-icons/rx";
 import { BsQuestionSquareFill } from "react-icons/bs";
 import { BsLightningCharge } from "react-icons/bs";
 import { PiChatsThin } from "react-icons/pi";
+import { firestore } from "../firebaseConfig"; 
+import 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 
 const Card = () => {
   return (
@@ -49,18 +52,49 @@ const SummarizePage: React.FC = () => {
     setInputText(e.target.value);
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setInputText(suggestion);
+  const handleSuggestionClick = async (suggestion: string) => {
+    handleSummarize();
   };
 
+  
   const handleSummarize = async () => {
+
     try {
       var val: any;
-      val = await callGeminiAPI(inputText);
+      const concatenatedString = await concatenateStringsFromFirestore();
+      var prompt = "Summarize this text in notes like format but be descriptive enough, don't leave out important information. \n ";
+      val = await callGeminiAPI(concatenatedString, prompt);
     } catch (error) {
       console.error("Error:", error);
     }
   };
+
+  const handleFlashCards = async () => {
+
+    try {
+      var val: any;
+      const concatenatedString = await concatenateStringsFromFirestore();
+      var prompt = "Summarize this text in flash card format for quiz prep. \n ";
+      val = await callGeminiAPI(concatenatedString, prompt);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  async function concatenateStringsFromFirestore() {
+  
+    let concatenatedString = '';
+  
+    const querySnapshot = await getDocs(collection(firestore, 'notes'));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  const string = doc.data().value; // Assuming the field name is "stringField"
+  concatenatedString += string + " ";
+});
+
+  
+    return concatenatedString.trim(); // Remove trailing whitespace
+  }
 
   return (
     <div className="bg-[#F5F5F5]">
@@ -81,7 +115,7 @@ const SummarizePage: React.FC = () => {
       <div className="pl-64 flex flex-row p-3 align-center justify-center">
         <Suggestions
           values="Get the latest organized class notes"
-          onClick={() => handleSuggestionClick("Get updated class notes")}
+          onClick={() => handleSummarize()}
           icon={<RxPencil2 />}
         />
         <Suggestions
@@ -93,7 +127,7 @@ const SummarizePage: React.FC = () => {
         />
         <Suggestions
           values="Test yourself with quick flash cards"
-          onClick={() => handleSuggestionClick("Test me with flash cards")}
+          onClick={() => handleFlashCards()}
           icon={<BsLightningCharge />}
         />
         <Suggestions
