@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.8.0",
+    "@types/react-filepond": "^7.1.0",
     "filepond": "^4.31.1",
     "firebase": "^10.11.1",
     "next": "14.2.3",
