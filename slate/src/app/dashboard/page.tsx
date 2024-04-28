@@ -57,7 +57,7 @@ export default function Dashboard() {
         <div className="flex flex-row gap-8 p-16">
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2  font-extralight text-xl font-medium text-white focus:outline-none bg-neutral-700 rounded-lg border border-gray-200 hover:bg-neutral-500 focus:z-10 focus:ring-4 focus:ring-gray-100"
+            className="py-2.5 px-5 me-2 mb-2  font-extralight text-xl font-medium text-white focus:outline-none bg-[#007585] rounded-lg border border-gray-200 hover:bg-neutral-500 focus:z-10 focus:ring-4 focus:ring-gray-100"
           >
             Create Class
           </button>

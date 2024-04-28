@@ -1,164 +1,199 @@
-// SignInWithGoogle.tsx
-"use client";
-import { useState, useEffect } from "react";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import firebaseConfig from "../firebaseconfig";
-import FileUpload from "@/components/file-upload";
+import { useState } from 'react'
+import React from 'react'
 
-import { useRouter } from "next/navigation";
+const navigation = [
+  { name: 'Product', href: '/dashboard' },
+  { name: 'Features', href: '#' },
+  { name: 'Marketplace', href: '#' },
+  { name: 'Company', href: '#' },
+]
 
-const initializeFirebase = () => {
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-};
-
-const SignInWithGoogle: React.FC = () => {
-  useEffect(() => {
-    initializeFirebase();
-  }, []);
-
-  // State to hold user information
-  const [user, setUser] = useState<any>(null); // Provide initial state value of null
-
-  const handleSignInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    try {
-      const result = await firebase.auth().signInWithPopup(provider);
-      const user = result.user;
-      setUser(user); // Set the user state with the signed-in user
-    } catch (error) {
-      console.error("Google Sign-In Error:", error);
-    }
-  };
-
-  const router = useRouter();
-  const handleRedirectToSummarize = () => {
-    // Redirect to the summarize page
-    router.push("/dashboard");
-  };
-
+export default function Example() {
   return (
-    <main className="w-full flex bg-white">
-      <div className="relative flex-1 hidden items-center justify-center h-screen bg-white lg:flex">
-        <div className="relative z-10 w-full max-w-md">
-          <div className=" mt-16 space-y-1"></div>
+    <><head>
+    </head><section>
+
+        <div className="bg-white">
+        <div className="">
+          <div className="flex items-center justify-center">
+    <div className="top-3 w-[1318px] h-[870px] bg-zinc-100 top-20 rounded-3xl">
+          <div className="top-5relative isolate px-6 pt-14 lg:px-8">
+            <div
+              className="absolute inset-x-0 -top-10 -z-10  overflow-hidden blur-3xl sm:-top-80"
+              aria-hidden="true"
+            ></div>
+            <div className="mx-auto max-w-2xl py-1 sm:py-1 lg:py-1">
+              <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+                <div className="relative rounded-full px-4 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                {"A hackdavis '24 "}
+                  <a href="#" className="font-semibold text-[#007585]">
+                    <span className="absolute inset-0" aria-hidden="true" />
+                    original<span aria-hidden="true"></span>
+                  </a>
+                </div>
+              </div>
+              <div className="text-center">
+                <h1 className="text-4xl font-regular tracking-tight text-gray-900 sm:text-6xl">
+                Revolutionize Note taking
+                                </h1>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                  Allowing you to tailor your professional story for every opportunity while staying focused on what truly matters—navigating your path to success.
+                </p>
+                <div className="mt-5 flex items-center justify-center gap-x-6">
+                  <a
+                    href="/profile"
+                    className="rounded-md bg-[#007585] px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                    Get started
+                  </a>
+                  <a href="/application" className="text-sm font-semibold leading-6 text-gray-900">
+                    Learn more <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+              <br></br>
+              <div className="w-[1241.19px] h-[626.82px] right-[340px] relative">
+                <img className="w-[1000px] h-[420px] left-[170px]  top-[110px] absolute " src="/1.svg" />
+                <img className="w-[360.59px] h-[206.54px] left-[990.60px] top-[250.29px] absolute" src="/Card (1).svg" />
+                <img className="w-[505.67px] h-[206.01px] right-[760.60px] top-[380px] absolute" src="/Card.svg" />
+                </div>
+            </div>
+            <div
+              className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+              aria-hidden="true">
+            </div>
+          </div>
         </div>
-        <div>
-          <img
-            src=""
-            className="w-[900px] h-[618px] left-[18px] absolute top-0"
-            alt="Small Image"
-          />
+        </div>
+        </div>
+        </div>
+        <div className="py-14 bg-white">
+            <div className="max-w-screen-xl mx-auto px-4 md:px-8 bg-white">
+                <h3 className="font-semibold text-sm text-gray-600 text-center">
+                    TRUSTED BY TEAMS FROM AROUND THE WORLD
+                </h3>
+                <div className="mt-6">
+                    <ul className="flex gap-y-6 flex-wrap items-center justify-center [&>*]:px-12 lg:divide-x">
+                        {/* LOGO 1 */}
+                        <img src="/logos.svg"></img>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div className="bg-white py-6 sm:py-8 lg:py-12">
+
+</div>
+
+
+<div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+    <div className="mt-5 sm:mt-10 lg:mt-0">
+      <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-2 md:space-y-4">
+          <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-gray-900">
+          We know the importance of every role
+          </h2>
+          <p className="text-gray-500">
+          You can easily create and manage distinct role type versions that highlight the specific skills and experiences relevant to each unique opportunity, ensuring that you present yourself in the best possible light.
+          </p>
         </div>
       </div>
-      <div className="flex-1 flex items-start justify-center my-20">
-        <div className="w-full max-w-md space-y-5 px-4 bg-white text-gray-900 sm:px-0">
-          <div className="mt-5">
-            <h3 className="text-gray-800 text-2xl font-bold sm:text-3xl">
-              Login
-            </h3>
-            <p className="">
-              Don't have an account?{" "}
-              <a
-                href="/signup"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Sign up
-              </a>
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-x-3">
-            {user ? (
-              <>
-                <p>Hello {user.displayName}</p>
-                <button onClick={handleRedirectToSummarize}>
-                  {" "}
-                  go to your classes
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={handleSignInWithGoogle}
-                className="flex items-center justify-center py-2.5 border rounded-lg hover:bg-gray-50 duration-150 active:bg-gray-100"
-              >
-                <svg
-                  className="w-5 h-5"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <g clip-path="url(#clip0_17_40)">
-                    <path
-                      d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z"
-                      fill="#4285F4"
-                    />
-                    <path
-                      d="M24.48 48.0016C30.9529 48.0016 36.4116 45.8764 40.3888 42.2078L32.6549 36.2111C30.5031 37.675 27.7252 38.5039 24.4888 38.5039C18.2275 38.5039 12.9187 34.2798 11.0139 28.6006H3.03296V34.7825C7.10718 42.8868 15.4056 48.0016 24.48 48.0016Z"
-                      fill="#34A853"
-                    />
-                    <path
-                      d="M11.0051 28.6006C9.99973 25.6199 9.99973 22.3922 11.0051 19.4115V13.2296H3.03298C-0.371021 20.0112 -0.371021 28.0009 3.03298 34.7825L11.0051 28.6006Z"
-                      fill="#FBBC04"
-                    />
-                    <path
-                      d="M24.48 9.49932C27.9016 9.44641 31.2086 10.7339 33.6866 13.0973L40.5387 6.24523C36.2 2.17101 30.4414 -0.068932 24.48 0.00161733C15.4055 0.00161733 7.10718 5.11644 3.03296 13.2296L11.005 19.4115C12.901 13.7235 18.2187 9.49932 24.48 9.49932Z"
-                      fill="#EA4335"
-                    />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_17_40">
-                      <rect width="48" height="48" fill="white" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </button>
-            )}
-          </div>
-          <div className="relative">
-            <span className="block w-full h-px bg-gray-300"></span>
-            <p className="inline-block w-fit text-sm bg-white px-2 absolute -top-2 inset-x-0 mx-auto">
-              Or continue with
-            </p>
-          </div>
+    </div>
+    <div>
+      <img className="rounded-xl" src="/Group1000004737.png" />
+    </div>
+  </div>
+</div>
 
-          <form className="space-y-5">
-            <div>
-              <label className="font-medium">Name</label>
-              <input
-                type="text"
-                required
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-              />
-            </div>
-            <div>
-              <label className="font-medium">Email</label>
-              <input
-                type="email"
-                required
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-              />
-            </div>
-            <div>
-              <label className="font-medium">Password</label>
-              <input
-                type="password"
-                required
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg"
-              />
-            </div>
-            <a
-              href="/dashboard"
-              className="block w-full text-center px-4 py-2 text-white font-medium bg-gray-600 hover:bg-gray-500 active:bg-gray-600 rounded-lg duration-150"
-            >
-              Log in
-            </a>
-          </form>
+
+
+
+<div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+    <div>
+      <img className="rounded-xl" src="/Group1000004738.png" />
+    </div>
+
+    <div className="mt-5 sm:mt-10 lg:mt-0">
+      <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-2 md:space-y-4">
+          <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-gray-900">
+           Make any changes anytime & anywhere.
+          </h2>
+          <p className="text-gray-500">
+          With an array of functions at your fingertips, you can effortlessly fine-tune even the minutest details across any resume version. 
+          </p>
+        </div>
+
+        <ul role="list" className="space-y-2 sm:space-y-4">
+          <li className="flex space-x-3">
+            <span className="text-sm sm:text-base text-gray-900">
+              <span className="font-bold text-gray-900">Push & Pull</span> from any resume
+            </span>
+          </li>
+
+          <li className="flex space-x-3">
+            <svg className="flex-shrink-0 h-6 w-6 text-blue-600 dark:text-blue-500" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.1965 7.85999C15.1965 3.71785 11.8387 0.359985 7.69653 0.359985C3.5544 0.359985 0.196533 3.71785 0.196533 7.85999C0.196533 12.0021 3.5544 15.36 7.69653 15.36C11.8387 15.36 15.1965 12.0021 15.1965 7.85999Z" fill="currentColor" fill-opacity="0.1"/>
+              <path d="M10.9295 4.88618C11.1083 4.67577 11.4238 4.65019 11.6343 4.82904C11.8446 5.00788 11.8702 5.32343 11.6914 5.53383L7.44139 10.5338C7.25974 10.7475 6.93787 10.77 6.72825 10.5837L4.47825 8.5837C4.27186 8.40024 4.25327 8.0842 4.43673 7.87781C4.62019 7.67142 4.93622 7.65283 5.14261 7.83629L7.01053 9.49669L10.9295 4.88618Z" fill="currentColor"/>
+            </svg>
+
+            <span className="text-sm sm:text-base text-gray-900">
+            Create <span className="font-bold text-gray-900">New Branches</span>
+            </span>
+          </li>
+
+          <li className="flex space-x-3">
+            <svg className="flex-shrink-0 h-6 w-6 text-blue-600 dark:text-blue-500" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.1965 7.85999C15.1965 3.71785 11.8387 0.359985 7.69653 0.359985C3.5544 0.359985 0.196533 3.71785 0.196533 7.85999C0.196533 12.0021 3.5544 15.36 7.69653 15.36C11.8387 15.36 15.1965 12.0021 15.1965 7.85999Z" fill="currentColor" fill-opacity="0.1"/>
+              <path d="M10.9295 4.88618C11.1083 4.67577 11.4238 4.65019 11.6343 4.82904C11.8446 5.00788 11.8702 5.32343 11.6914 5.53383L7.44139 10.5338C7.25974 10.7475 6.93787 10.77 6.72825 10.5837L4.47825 8.5837C4.27186 8.40024 4.25327 8.0842 4.43673 7.87781C4.62019 7.67142 4.93622 7.65283 5.14261 7.83629L7.01053 9.49669L10.9295 4.88618Z" fill="currentColor"/>
+            </svg>
+            <span className="text-sm sm:text-base text-gray-900">
+            Auto Update from Main
+            </span>
+          </li>
+          <li className="flex space-x-3">
+            <svg className="flex-shrink-0 h-6 w-6 text-blue-600 dark:text-blue-500" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.1965 7.85999C15.1965 3.71785 11.8387 0.359985 7.69653 0.359985C3.5544 0.359985 0.196533 3.71785 0.196533 7.85999C0.196533 12.0021 3.5544 15.36 7.69653 15.36C11.8387 15.36 15.1965 12.0021 15.1965 7.85999Z" fill="currentColor" fill-opacity="0.1"/>
+              <path d="M10.9295 4.88618C11.1083 4.67577 11.4238 4.65019 11.6343 4.82904C11.8446 5.00788 11.8702 5.32343 11.6914 5.53383L7.44139 10.5338C7.25974 10.7475 6.93787 10.77 6.72825 10.5837L4.47825 8.5837C4.27186 8.40024 4.25327 8.0842 4.43673 7.87781C4.62019 7.67142 4.93622 7.65283 5.14261 7.83629L7.01053 9.49669L10.9295 4.88618Z" fill="currentColor"/>
+            </svg>
+            <span className="text-sm sm:text-base text-gray-900">
+            View Version History
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
+    <div className="mt-5 sm:mt-10 lg:mt-0">
+      <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-2 md:space-y-4">
+          <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-gray-900">
+          Organize it your own way for every role
+          </h2>
+          <p className="text-gray-500">
+          Experience the convenience of personalized directories and folders within our platform, designed to help you effortlessly organize your resumes based on specific occasions or opportunities.
+          </p>
         </div>
       </div>
-    </main>
-  );
-};
+    </div>
+    <div>
+      <img className="rounded-xl" src="/Group1000004739.svg" />
+    </div>
+  </div>
+</div>
 
-export default SignInWithGoogle;
+
+
+        <section>
+</section>*/
+      </section></>
+  )
+}

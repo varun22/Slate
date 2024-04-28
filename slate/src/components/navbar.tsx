@@ -1,22 +1,11 @@
-import { Open_Sans } from "next/font/google";
-const openSans = Open_Sans({
-  subsets: ["latin"],
-  display: "swap",
-  //👇 Add variable to our object
-  variable: "--font-opensans",
-});
-
 import React from "react";
 
 const Navigation = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900">
-      <div className="max-w-screen-xl h-50 flex flex-wrap justify-between mx-auto">
-        <a
-          href="http://localhost:3000/"
-          className="flex items-center justify-left"
-        >
-          <img src="/Group1000000854.svg" className="h-12" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-white">
+      <div className="max-w-screen-l  h-20 flex items-center justify-between mx-auto">
+        <a href="http://localhost:3000/" className="flex items-center">
+          <img src="logo.svg" className="h-13 mx-10" alt="Logo" />
         </a>
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
@@ -43,7 +32,7 @@ const Navigation = () => {
             <li>
               <a
                 href="/Login"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 mr-10 m text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Login
               </a>
