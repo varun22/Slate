@@ -147,7 +147,7 @@ querySnapshot.forEach((doc) => {
           <div className="pl-64 flex flex-row p-3 align-center justify-center">
             <Suggestions
               values="Get the latest organized class notes"
-              onClick={() => handleSuggestionClick("Get updated class notes")}
+              onClick={() => handleSummarize()}
               icon={<RxPencil2 />}
             />
             <Suggestions
@@ -161,7 +161,7 @@ querySnapshot.forEach((doc) => {
             />
             <Suggestions
               values="Test yourself with quick flash cards"
-              onClick={() => handleSuggestionClick("Test me with flash cards")}
+              onClick={() => handleFlashCards()}
               icon={<BsLightningCharge />}
             />
             <Suggestions
