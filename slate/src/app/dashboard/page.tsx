@@ -12,7 +12,7 @@ const openSans = Open_Sans({
 const Card = ({ values }: any) => {
   return (
     <a
-      href="#"
+      href="/classes"
       className="block w-[410px] p-6 bg-white border border-gray-200 rounded-3xl shadow hover:bg-gray-100 bg-white"
     >
       <div className="py-4  text-xl font-bold  text-gray-900 ">
