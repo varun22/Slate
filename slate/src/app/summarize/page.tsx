@@ -105,7 +105,7 @@ const SummarizePage: React.FC = () => {
           icon={<PiChatsThin />}
         />
       </div>
-      <div className="flex h-screen mb-10 col-span-4 col-start-2">
+      <div className="flex pl-64 align-center justify-center  py-8 col-span-4 col-start-2">
         <textarea
           value={inputText}
           placeholder="Ask the AI any question from the notes"
