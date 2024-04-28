@@ -64,7 +64,8 @@ export async function POST(req: NextRequest) {
         }
 
         try {
-          var val = await callGeminiAPI(parsedText);
+          var prompt = "Summarize this text in notes like format but be descriptive enough, don't leave out important information. \n ";
+          var val = await callGeminiAPI(parsedText, prompt);
           // Further processing with the value returned from the API call
         } catch (error) {
           console.error('Error:', error);
