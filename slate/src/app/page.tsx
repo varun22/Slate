@@ -36,16 +36,19 @@ const SignInWithGoogle: React.FC = () => {
   const router = useRouter();
   const handleRedirectToSummarize = () => {
     // Redirect to the summarize page
-    router.push('/summarize');
+    router.push("/summarize");
   };
 
   return (
     <div>
+      <Sidebar />
+
       {user ? (
         <>
-                            <Sidebar />
           <p>Hello {user.displayName}</p>
-          <button onClick={handleRedirectToSummarize}>Go to Summarize Page</button>
+          <button onClick={handleRedirectToSummarize}>
+            Go to Summarize Page
+          </button>
         </>
       ) : (
         <button onClick={handleSignInWithGoogle}>Sign in with Google</button>
