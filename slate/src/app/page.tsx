@@ -6,6 +6,8 @@ import "firebase/compat/auth";
 import firebaseConfig from "../firebaseconfig";
 import FileUpload from "@/components/file-upload";
 
+import { useRouter } from "next/navigation";
+
 const initializeFirebase = () => {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
@@ -31,10 +33,19 @@ const SignInWithGoogle: React.FC = () => {
     }
   };
 
+  const router = useRouter();
+  const handleRedirectToSummarize = () => {
+    // Redirect to the summarize page
+    router.push('/summarize');
+  };
+
   return (
     <div>
       {user ? (
-        <p>Hello {user.displayName}</p>
+        <>
+          <p>Hello {user.displayName}</p>
+          <button onClick={handleRedirectToSummarize}>Go to Summarize Page</button>
+        </>
       ) : (
         <button onClick={handleSignInWithGoogle}>Sign in with Google</button>
       )}
