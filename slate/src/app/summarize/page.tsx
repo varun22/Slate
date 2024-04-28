@@ -22,7 +22,7 @@ const SummarizePage: React.FC = () => {
 
   return (
     <div>
-      <textarea
+=      <textarea
         value={inputText}
         onChange={handleInputChange}
         rows={10}
