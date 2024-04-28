@@ -88,11 +88,13 @@ const SummarizePage: React.FC = () => {
       </div>
       {sendClicked ? (
         <>
-          <div className="pl-64 right-0 flex flex-col align-center justify-self-end py-8 col-start-5">
+          <div className="pl-80 flex flex-col py-8 col-start-5">
             {inputs.map((input, index) => (
-              <Text key={index} className="mb-2">
-                {input}
-              </Text>
+              <Text
+                key={index}
+                values={input}
+                className="mb-2 flex  flex-row-reverse"
+              ></Text>
             ))}
           </div>
         </>
