@@ -47,7 +47,7 @@ const SignInWithGoogle: React.FC = () => {
             </div>
         </div>
         <div>
-            <img src="" className="w-[900px] h-[618px] left-[18px] absolute top-0" alt="Small Image"/>
+            <img src="/Group1000004736.svg" className="w-[900px] h-[618px] top-[40px] left-[18px] absolute top-0" alt="Small Image"/>
         </div>
     </div>
     <div className="flex-1 flex items-start justify-center my-20">
@@ -124,7 +124,7 @@ const SignInWithGoogle: React.FC = () => {
                 </div>
                 <a
 href="/dashboard"
-className="block w-full text-center px-4 py-2 text-white font-medium bg-gray-600 hover:bg-gray-500 active:bg-gray-600 rounded-lg duration-150"
+className="block w-full text-center px-4 py-2 text-white font-medium bg-[#007585] hover:bg-gray-500 active:bg-gray-600 rounded-lg duration-150"
 >
 Log in
 </a>

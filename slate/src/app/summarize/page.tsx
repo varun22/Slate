@@ -45,8 +45,19 @@ const Suggestions = ({ values, onClick, icon }: any) => {
     </button>
   );
 };
+const Text = ({ values }: any) => {
+  return (
+    <div className="block w-64 p-6 bg-white m-3 flex flex-wrap rounded-xl shadow">
+      <div className="text-l font-medium text-gray-900 text-left ">
+        {values}
+      </div>
+    </div>
+  );
+};
+
 const SummarizePage: React.FC = () => {
   const [inputText, setInputText] = useState<string>("");
+  const [inputs, setInputs] = useState<string[]>([]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInputText(e.target.value);
@@ -56,7 +67,10 @@ const SummarizePage: React.FC = () => {
     handleSummarize();
   };
 
-  
+
+  const [sendClicked, setSendClicked] = useState<boolean>(false);
+
+
   const handleSummarize = async () => {
 
     try {
@@ -64,6 +78,9 @@ const SummarizePage: React.FC = () => {
       const concatenatedString = await concatenateStringsFromFirestore();
       var prompt = "Summarize this text in notes like format but be descriptive enough, don't leave out important information. \n ";
       val = await callGeminiAPI(concatenatedString, prompt);
+      setInputs((prevInputs) => [...prevInputs, inputText]);
+      setInputText("");
+      setSendClicked(true);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -104,39 +121,60 @@ querySnapshot.forEach((doc) => {
         </div>
         <Card />
       </div>
-      <div className="pb-4">
-        <div className="pl-64 text-center font-semibold text-neutral-500 text-4xl pt-28">
-          Get started by selecting one of
-        </div>
-        <div className="pl-64 text-center font-semibold text-neutral-500 text-4xl pt-2">
-          the following actions...
-        </div>
-      </div>
-      <div className="pl-64 flex flex-row p-3 align-center justify-center">
-        <Suggestions
-          values="Get the latest organized class notes"
-          onClick={() => handleSummarize()}
-          icon={<RxPencil2 />}
-        />
-        <Suggestions
-          values="Prepare for your next quiz with Questions & answers"
-          onClick={() =>
-            handleSuggestionClick("Provide questions & answers for topics : []")
-          }
-          icon={<BsQuestionSquareFill />}
-        />
-        <Suggestions
-          values="Test yourself with quick flash cards"
-          onClick={() => handleFlashCards()}
-          icon={<BsLightningCharge />}
-        />
-        <Suggestions
-          values="Or type any questions to the AI or the forum"
-          onClick={() => handleSuggestionClick("[Type your Questions here!]")}
-          icon={<PiChatsThin />}
-        />
-      </div>
-      <div className="flex pl-64 align-center justify-center  py-8 col-span-4 col-start-2">
+
+      {sendClicked ? (
+        <>
+          <div className="pl-80 flex flex-col py-8 col-start-5">
+            {inputs.map((input, index) => (
+              <Text
+                key={index}
+                values={input}
+                className="mb-2 flex  flex-row-reverse"
+              ></Text>
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="pb-4">
+            <div className="pl-64 text-center font-semibold text-neutral-500 text-4xl pt-28">
+              Get started by selecting one of
+            </div>
+            <div className="pl-64 text-center font-semibold text-neutral-500 text-4xl pt-2">
+              the following actions...
+            </div>
+          </div>
+          <div className="pl-64 flex flex-row p-3 align-center justify-center">
+            <Suggestions
+              values="Get the latest organized class notes"
+              onClick={() => handleSuggestionClick("Get updated class notes")}
+              icon={<RxPencil2 />}
+            />
+            <Suggestions
+              values="Prepare for your next quiz with Questions & answers"
+              onClick={() =>
+                handleSuggestionClick(
+                  "Provide questions & answers for topics : []"
+                )
+              }
+              icon={<BsQuestionSquareFill />}
+            />
+            <Suggestions
+              values="Test yourself with quick flash cards"
+              onClick={() => handleSuggestionClick("Test me with flash cards")}
+              icon={<BsLightningCharge />}
+            />
+            <Suggestions
+              values="Or type any questions to the AI or the forum"
+              onClick={() =>
+                handleSuggestionClick("[Type your Questions here!]")
+              }
+              icon={<PiChatsThin />}
+            />
+          </div>
+        </>
+      )}
+      <div className="flex pl-64 bottom-0 align-center justify-center py-8 col-span-4 col-start-2">
         <textarea
           value={inputText}
           placeholder="Ask the AI any question from the notes"

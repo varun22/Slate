@@ -1,7 +1,7 @@
 import { Open_Sans } from "next/font/google";
 import { IoMdCloudUpload } from "react-icons/io";
 import { TbNotes } from "react-icons/tb";
-import { RxDashboard } from "react-icons/rx";
+import { RiChatHeartLine } from "react-icons/ri";
 import { BsChatDots } from "react-icons/bs";
 import { HiChartSquareBar } from "react-icons/hi";
 import { IoSettingsSharp } from "react-icons/io5";
@@ -28,7 +28,7 @@ const Navigation = () => {
           <ul className="space-y-2 font-medium">
             <li>
               <a
-                href="/summarize"
+                href="/classes"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <IoMdCloudUpload />
@@ -37,11 +37,11 @@ const Navigation = () => {
             </li>
             <li>
               <a
-                href="/dashboard"
+                href="/summarize"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
-                <RxDashboard />
-                <span className="flex-1 ms-3 whitespace-nowrap">Dashboard</span>
+                <RiChatHeartLine />
+                <span className="flex-1 ms-3 whitespace-nowrap">ChatAI</span>
               </a>
             </li>
             <li>
