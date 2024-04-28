@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import Navbar from "@/components/navbar";
-import Sidebar from "@/components/sidebar";
 
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Navbar />
-      <Sidebar />
       <body className="bg-[#F5F5F5]"> <main className="pt-16">{children}</main></body>
       {/* Add padding top to main */}
     </html>

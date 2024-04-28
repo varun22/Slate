@@ -2,6 +2,7 @@
 "use client"
 import { useState } from 'react';
 
+
 const SummarizePage: React.FC = () => {
   const [inputText, setInputText] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
@@ -42,7 +43,7 @@ const SummarizePage: React.FC = () => {
 
   return (
     <div>
-      <textarea
+=      <textarea
         value={inputText}
         onChange={handleInputChange}
         rows={10}

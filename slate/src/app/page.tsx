@@ -5,7 +5,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "../firebaseconfig";
 import FileUpload from "@/components/file-upload";
-
+import Sidebar from "@/components/sidebar";
 import { useRouter } from "next/navigation";
 
 const initializeFirebase = () => {
@@ -43,6 +43,7 @@ const SignInWithGoogle: React.FC = () => {
     <div>
       {user ? (
         <>
+                            <Sidebar />
           <p>Hello {user.displayName}</p>
           <button onClick={handleRedirectToSummarize}>Go to Summarize Page</button>
         </>
