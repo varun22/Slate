@@ -13,10 +13,7 @@ import { PiChatsThin } from "react-icons/pi";
 
 const Card = () => {
   return (
-    <a
-      href="/classes"
-      className="block w-[410px] h-32 p-4 bg-white bg-opacity-0"
-    >
+    <a href="/classes" className="block w-[410px] h-32 p-4 bg-[#F5F5F5]">
       <div className="flex flex-row">
         <div className=" text-5xl font-semibold  text-gray-900">ECS 161</div>
         <div className="pl-1 pt-3">
@@ -66,8 +63,8 @@ const SummarizePage: React.FC = () => {
   };
 
   return (
-    <div className="bg-grey">
-      <div className="justify-center bg-grey grid grid-cols-5">
+    <div className="bg-[#F5F5F5]">
+      <div className="justify-center bg-[#F5F5F5] grid grid-cols-5">
         <div>
           <Sidebar />
         </div>
