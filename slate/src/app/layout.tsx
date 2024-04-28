@@ -4,6 +4,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import Navbar from "@/components/navbar";
 import { Open_Sans } from "next/font/google";
+import "@mantine/dates/styles.css";
+import "@mantine/core/styles.css";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
