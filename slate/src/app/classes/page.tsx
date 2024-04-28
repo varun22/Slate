@@ -54,7 +54,9 @@ const classPage: React.FC = () => {
               placeholder="Date input"
             />
             <Box className="self-center" mx="auto">
-              <form onSubmit={form.onSubmit((values) => console.log(values))}>
+              <form
+                onSubmit={form.onSubmit((values: any) => console.log(values))}
+              >
                 <TextInput
                   withAsterisk
                   className="text-xl"
