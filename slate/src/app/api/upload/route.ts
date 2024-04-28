@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server"; // To handle the request and response
 import { promises as fs } from "fs"; // To save the file temporarily
+import { collection, addDoc } from 'firebase/firestore';
+import firebaseConfig from "../../../firebaseconfig";
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
 // import { v4 as uuidv4 } from "uuid"; // To generate a unique filename
 import PDFParser from "pdf2json"; // To parse the pdf
 import { callGeminiAPI } from "@/components/apicalls";
@@ -8,6 +12,10 @@ export async function POST(req: NextRequest) {
   const uploadedFiles = formData.getAll("filepond");
   let fileName = "";
   let parsedText = "";
+
+  const firebaseApp = initializeApp(firebaseConfig);
+  const firestore = getFirestore(firebaseApp);
+
 
   if (uploadedFiles && uploadedFiles.length > 0) {
     const uploadedFile = uploadedFiles[1];
@@ -43,6 +51,18 @@ export async function POST(req: NextRequest) {
 
       pdfParser.on("pdfParser_dataReady", async () => {
         parsedText = pdfParser.getRawTextContent();
+        try {
+          const docRef = await addDoc(collection(firestore, 'notes'), {
+            value: parsedText , 
+            classes: "ECS 132"
+          });
+          console.log('Document written with ID: ', docRef.id);
+          return docRef.id; // Optionally return the document ID
+        } catch (error) {
+          console.error('Error adding document: ', error);
+          return null;
+        }
+
         try {
           var val = await callGeminiAPI(parsedText);
           // Further processing with the value returned from the API call

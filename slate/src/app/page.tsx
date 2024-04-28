@@ -5,7 +5,6 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import firebaseConfig from "../firebaseconfig";
 import FileUpload from "@/components/file-upload";
-
 import { useRouter } from "next/navigation";
 
 const initializeFirebase = () => {
